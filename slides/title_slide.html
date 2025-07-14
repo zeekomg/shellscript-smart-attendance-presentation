@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آلية ذكية لتوثيق الحضور والانصراف</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        h1, h2, h3 { font-family: 'Tajawal', sans-serif; }
+        
+        .floating-icon {
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.8;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: particleFloat 8s infinite linear;
+        }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            .title { font-size: 2rem !important; }
+            .subtitle { font-size: 1.25rem !important; }
+            .university { font-size: 1rem !important; }
+            .student-info { font-size: 0.875rem !important; }
+            .floating-icon { width: 40px !important; height: 40px !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4 relative">
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Floating Icons -->
+    <div class="floating-icon absolute top-20 right-20" style="animation-delay: 0s;">
+        <i class="fas fa-robot text-green-400 text-6xl md:text-8xl"></i>
+    </div>
+    <div class="floating-icon absolute bottom-32 right-32" style="animation-delay: 1s;">
+        <i class="fas fa-user-check text-blue-300 text-6xl md:text-8xl"></i>
+    </div>
+    <div class="floating-icon absolute top-32 left-32" style="animation-delay: 2s;">
+        <i class="fas fa-camera text-yellow-300 text-6xl md:text-8xl"></i>
+    </div>
+    <div class="floating-icon absolute bottom-20 left-20" style="animation-delay: 3s;">
+        <i class="fas fa-chart-line text-purple-300 text-6xl md:text-8xl"></i>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="z-10 text-center mb-8">
+        <h1 class="title text-4xl md:text-6xl font-bold text-white mb-6 text-shadow-lg">
+            آلية ذكية لتوثيق الحضور والانصراف
+        </h1>
+        <h2 class="subtitle text-xl md:text-3xl font-medium text-white mb-4 text-shadow">
+            بالاعتماد على تقنيات الذكاء الاصطناعي في التعرف على الوجوه
+        </h2>
+    </div>
+    
+    <div class="university z-10 text-center mb-6">
+        <p class="text-lg md:text-2xl text-white text-shadow">جامعة أجدابيا - كلية تقنية المعلومات</p>
+    </div>
+
+    <div class="student-info z-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 max-w-4xl w-full">
+        <h3 class="text-xl md:text-2xl font-bold text-green-400 mb-4 text-center">إعداد الطلاب:</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-white">
+            <div class="text-center md:text-right">
+                <p class="text-sm md:text-base">ابراهيم فرج محمد جمعة - 81910076</p>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-sm md:text-base">احمد سالم رمضان ادهیم - 82120136</p>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-sm md:text-base">عبد المالك هدية عبد الله يونس - 82120103</p>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-sm md:text-base">عبد الروؤف ادريس ديدح - 82120213</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 100; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+    </script>
+</body>
+</html>

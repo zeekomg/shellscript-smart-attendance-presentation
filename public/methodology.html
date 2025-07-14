@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منهجية التطوير</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Cairo', sans-serif;
+        overflow-x: hidden;
+      }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      h1, h2, h3 {
+        font-family: 'Tajawal', sans-serif;
+      }
+      .title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #FFFFFF;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .content {
+        font-size: 20px;
+        color: #FFFFFF;
+        line-height: 1.6;
+      }
+      .highlight {
+        color: #10B981;
+        font-weight: 700;
+      }
+      .phase-card {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+      .phase-card:hover {
+        transform: translateY(-5px) rotateY(5deg);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .phase-icon {
+        font-size: 28px;
+        color: #10B981;
+        margin-left: 10px;
+      }
+      .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+      .spiral-container {
+        position: relative;
+        width: 100%;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container flex flex-col p-10 relative">
+      <div class="particles" id="particles"></div>
+      
+      <div class="z-10 mb-6">
+        <h1 class="title mb-4 text-center">منهجية التطوير</h1>
+        <p class="content text-center mb-6">تم اعتماد استخدام <span class="highlight">المنهجية الحلزونية (Spiral Model)</span> لتطوير النظام، لما توفره من مرونة في التعامل مع المتطلبات المتغيرة.</p>
+      </div>
+      
+      <div class="flex flex-row justify-between z-10">
+        <div class="w-1/2 pl-6">
+          <div class="spiral-container" id="spiral-visualization">
+            <img src="images/spiral_model_icon.jpg" alt="المنهجية الحلزونية" class="w-full h-full object-contain rounded-lg" style="max-height: 300px;">
+          </div>
+          
+          <div class="content mt-6">
+            <p>تتميز المنهجية الحلزونية بالمرونة والقدرة على التكيف مع المتطلبات المتغيرة، وتقييم المخاطر في كل دورة تطويرية. ساهم هذا النهج في تحسين النظام بشكل تدريجي، خاصة في الجوانب التي تتطلب اختبارًا ميدانيًا مثل الإضاءة، زوايا التصوير، وسرعة الاستجابة.</p>
+          </div>
+        </div>
+        
+        <div class="w-1/2 pr-6">
+          <div class="flex flex-col space-y-4">
+            <div class="phase-card p-4" id="phase1">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-tasks phase-icon"></i>
+                <h3 class="text-xl font-bold text-white">1. التخطيط</h3>
+              </div>
+              <p class="text-white">تحديد أهداف المشروع، وتحديد المتطلبات، وتقييم المخاطر المحتملة.</p>
+            </div>
+            
+            <div class="phase-card p-4" id="phase2">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-pencil-ruler phase-icon"></i>
+                <h3 class="text-xl font-bold text-white">2. التصميم</h3>
+              </div>
+              <p class="text-white">تصميم النظام، وتحديد المكونات الرئيسية، واختيار الخوارزميات والتقنيات المناسبة.</p>
+            </div>
+            
+            <div class="phase-card p-4" id="phase3">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-code phase-icon"></i>
+                <h3 class="text-xl font-bold text-white">3. التنفيذ</h3>
+              </div>
+              <p class="text-white">كتابة الكود، واختبار الوحدات، وتكامل النظام بشكل متكامل.</p>
+            </div>
+            
+            <div class="phase-card p-4" id="phase4">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-chart-bar phase-icon"></i>
+                <h3 class="text-xl font-bold text-white">4. التقييم</h3>
+              </div>
+              <p class="text-white">تقييم النظام، وتحديد نقاط القوة والضعف، وتحديد التحسينات المطلوبة للدورة القادمة.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // إنشاء تأثير الجسيمات ثلاثية الأبعاد
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, 1280 / 720, 0.1, 1000);
+      
+      const renderer = new THREE.WebGLRenderer({ alpha: true });
+      renderer.setSize(1280, 720);
+      document.getElementById('particles').appendChild(renderer.domElement);
+      
+      // إضافة الجسيمات
+      const particlesGeometry = new THREE.BufferGeometry();
+      const particlesCount = 100;
+      
+      const posArray = new Float32Array(particlesCount * 3);
+      
+      for(let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 1000;
+      }
+      
+      particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+      
+      const particlesMaterial = new THREE.PointsMaterial({
+        size: 2,
+        color: 0xFFFFFF,
+        transparent: true,
+        opacity: 0.3
+      });
+      
+      const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+      scene.add(particlesMesh);
+      
+      camera.position.z = 400;
+      
+      // تحريك الجسيمات
+      function animate() {
+        requestAnimationFrame(animate);
+        particlesMesh.rotation.x += 0.0003;
+        particlesMesh.rotation.y += 0.0003;
+        renderer.render(scene, camera);
+      }
+      
+      animate();
+      
+      // إضافة تأثيرات التفاعل للبطاقات
+      const phases = ['phase1', 'phase2', 'phase3', 'phase4'];
+      
+      phases.forEach((phase, index) => {
+        const card = document.getElementById(phase);
+        
+        // تأخير ظهور البطاقات
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateX(0)';
+        }, 300 * index);
+        
+        // تأثير التحويم
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'translateY(-5px) rotateY(5deg)';
+          card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+          card.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'translateY(0) rotateY(0)';
+          card.style.boxShadow = 'none';
+          card.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        });
+      });
+    </script>
+  </body>
+</html>
+

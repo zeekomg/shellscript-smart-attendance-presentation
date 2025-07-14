@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المقدمة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Tajawal', sans-serif; }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particleFloat 6s infinite linear;
+        }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            .content { font-size: 0.875rem !important; }
+            .title { font-size: 1.875rem !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-10 relative">
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="z-10 relative">
+        <div class="mb-8">
+            <h1 class="title text-3xl md:text-4xl font-bold text-white mb-6 text-center">المقدمة</h1>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="space-y-6">
+                <div class="content text-base md:text-lg text-white leading-relaxed">
+                    <p class="mb-4">يشهد العالم اليوم <span class="text-green-400 font-bold">تحولًا جذريًا</span> في كيفية تنفيذ المهام اليومية، مدفوعًا بالتقدم المتسارع في مجالات الذكاء الاصطناعي والرؤية الحاسوبية.</p>
+                    
+                    <p class="mb-4">ينطلق هذا المشروع تحت عنوان <span class="text-green-400 font-bold">"نظام بصمة الوجه لتوثيق الحضور والغياب في الزمن الحقيقي"</span>، بهدف تطوير نظام ذكي قادر على تسجيل الحضور آليًا باستخدام تقنيات التعرف على الوجه، دون تدخل بشري.</p>
+                    
+                    <p>يعتمد النظام على خوارزمية <span class="text-green-400 font-bold">LBPH</span> لتحليل نسيج الوجه وتمثيله رقميًا، إلى جانب استخدام نموذج <span class="text-green-400 font-bold">SSD-ResNet10</span> لاكتشاف موقع الوجه في الصورة بدقة وزمن استجابة منخفض.</p>
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="card rounded-2xl p-6">
+                    <h3 class="text-lg md:text-xl font-bold text-white mb-4">التحديات الحالية في أنظمة الحضور التقليدية:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-exclamation-triangle text-green-400 text-lg ml-3"></i>
+                            <span class="text-sm md:text-base">الافتقار إلى الدقة وإمكانية التلاعب</span>
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-clock text-green-400 text-lg ml-3"></i>
+                            <span class="text-sm md:text-base">استهلاك وقت إداري كبير</span>
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-chart-line text-green-400 text-lg ml-3"></i>
+                            <span class="text-sm md:text-base">انخفاض الكفاءة وصعوبة المتابعة</span>
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-file-alt text-green-400 text-lg ml-3"></i>
+                            <span class="text-sm md:text-base">صعوبة توليد التقارير وتحليل البيانات</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card rounded-2xl p-6">
+                    <h3 class="text-lg md:text-xl font-bold text-white mb-4">مميزات النظام المقترح:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-check-circle text-green-400 text-lg ml-3"></i>
+                            <span class="text-sm md:text-base">تسجيل الحضور آليًا دون تدخل بشري</span>
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-check-circle text-green-400 text-lg ml-3"></i>
+                            <span class="text-sm md:text-base">دقة عالية في التعرف على الوجوه</span>
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-check-circle text-green-400 text-lg ml-3"></i>
+                            <span class="text-sm md:text-base">واجهة رسومية باللغة العربية</span>
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-check-circle text-green-400 text-lg ml-3"></i>
+                            <span class="text-sm md:text-base">توليد تقارير بصيغ متعددة</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+    </script>
+</body>
+</html>

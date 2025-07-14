@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخاتمة</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Cairo', sans-serif;
+        overflow-x: hidden;
+      }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      h1, h2, h3 {
+        font-family: 'Tajawal', sans-serif;
+      }
+      .title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #FFFFFF;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .content {
+        font-size: 20px;
+        color: #FFFFFF;
+        line-height: 1.6;
+      }
+      .highlight {
+        color: #10B981;
+        font-weight: 700;
+      }
+      .conclusion-card {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+      .conclusion-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .icon {
+        font-size: 28px;
+        color: #10B981;
+        margin-left: 10px;
+      }
+      .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+      .impact-item {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.5s forwards;
+      }
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container flex flex-col p-10 relative">
+      <div class="particles" id="particles"></div>
+      
+      <div class="z-10 mb-6">
+        <h1 class="title mb-4 text-center">الخاتمة</h1>
+        <p class="content text-center mb-6">ملخص لأهم النتائج والإنجازات وتأثير المشروع على المؤسسات التعليمية</p>
+      </div>
+      
+      <div class="flex flex-row justify-between z-10">
+        <div class="w-1/2 pl-6">
+          <div class="conclusion-card p-6 mb-6">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-award icon"></i>
+              <h3 class="text-xl font-bold text-white">أهم النتائج والإنجازات</h3>
+            </div>
+            <ul class="list-none">
+              <li class="mb-3 impact-item" style="animation-delay: 0.1s;">
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-green-400 text-xl ml-2 mt-1"></i>
+                  <p>تطوير نظام متكامل للتعرف على الوجوه بدقة تصل إلى <span class="highlight">95%</span> في ظروف الإضاءة المناسبة</p>
+                </div>
+              </li>
+              <li class="mb-3 impact-item" style="animation-delay: 0.2s;">
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-green-400 text-xl ml-2 mt-1"></i>
+                  <p>تقليل الوقت المستغرق في عملية تسجيل الحضور بنسبة <span class="highlight">80%</span> مقارنة بالطرق التقليدية</p>
+                </div>
+              </li>
+              <li class="mb-3 impact-item" style="animation-delay: 0.3s;">
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-green-400 text-xl ml-2 mt-1"></i>
+                  <p>تطوير واجهة مستخدم سهلة الاستخدام باللغة العربية تناسب احتياجات المؤسسات التعليمية</p>
+                </div>
+              </li>
+              <li class="impact-item" style="animation-delay: 0.4s;">
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-green-400 text-xl ml-2 mt-1"></i>
+                  <p>إنشاء نظام تقارير متكامل يسمح بتحليل بيانات الحضور واستخراج إحصائيات دقيقة</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="content">
+            <p>لا يقتصر المشروع على تقديم حل تقني فحسب، بل يُعد مساهمة فاعلة في دعم التحول الرقمي في المؤسسات، وتعزيز مفاهيم العدالة والشفافية في تسجيل الحضور.</p>
+          </div>
+        </div>
+        
+        <div class="w-1/2 pr-6">
+          <div class="conclusion-card p-6 mb-6">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-university icon"></i>
+              <h3 class="text-xl font-bold text-white">تأثير المشروع على المؤسسات التعليمية</h3>
+            </div>
+            <div style="height: 300px;">
+              <canvas id="impactChart"></canvas>
+            </div>
+          </div>
+          
+          <div class="conclusion-card p-6">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-lightbulb icon"></i>
+              <h3 class="text-xl font-bold text-white">الرؤية المستقبلية</h3>
+            </div>
+            <p class="text-white mb-3">يُشكل هذا المشروع أساسًا يمكن البناء عليه مستقبلًا لتطوير أنظمة أكثر تطورًا وذكاءً في مجال إدارة الموارد البشرية والتعليم الإلكتروني، مع إمكانية:</p>
+            <ul class="list-none">
+              <li class="mb-2 flex items-center">
+                <i class="fas fa-arrow-circle-right text-white ml-2"></i>
+                <p class="text-white">التكامل مع أنظمة التعليم الإلكتروني مثل Moodle</p>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-arrow-circle-right text-white ml-2"></i>
+                <p class="text-white">إضافة خاصية مقاومة الخداع (Liveness Detection)</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // إنشاء تأثير الجسيمات ثلاثية الأبعاد
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, 1280 / 720, 0.1, 1000);
+      
+      const renderer = new THREE.WebGLRenderer({ alpha: true });
+      renderer.setSize(1280, 720);
+      document.getElementById('particles').appendChild(renderer.domElement);
+      
+      // إضافة الجسيمات
+      const particlesGeometry = new THREE.BufferGeometry();
+      const particlesCount = 100;
+      
+      const posArray = new Float32Array(particlesCount * 3);
+      
+      for(let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 1000;
+      }
+      
+      particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+      
+      const particlesMaterial = new THREE.PointsMaterial({
+        size: 2,
+        color: 0xFFFFFF,
+        transparent: true,
+        opacity: 0.3
+      });
+      
+      const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+      scene.add(particlesMesh);
+      
+      camera.position.z = 400;
+      
+      // تحريك الجسيمات
+      function animate() {
+        requestAnimationFrame(animate);
+        particlesMesh.rotation.x += 0.0003;
+        particlesMesh.rotation.y += 0.0003;
+        renderer.render(scene, camera);
+      }
+      
+      animate();
+      
+      // إنشاء الرسم البياني لتأثير المشروع
+      const ctx = document.getElementById('impactChart').getContext('2d');
+      const impactChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: [
+            'تحسين الكفاءة الإدارية',
+            'تقليل التكاليف',
+            'زيادة الدقة',
+            'تعزيز الشفافية',
+            'توفير الوقت',
+            'سهولة المتابعة'
+          ],
+          datasets: [{
+            label: 'تأثير النظام المقترح',
+            data: [90, 75, 95, 85, 80, 90],
+            backgroundColor: 'rgba(16, 185, 129, 0.2)',
+            borderColor: '#10B981',
+            borderWidth: 2,
+            pointBackgroundColor: '#FFFFFF',
+            pointBorderColor: '#10B981',
+            pointHoverBackgroundColor: '#10B981',
+            pointHoverBorderColor: '#FFFFFF'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            r: {
+              angleLines: {
+                color: 'rgba(255, 255, 255, 0.2)'
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.2)'
+              },
+              pointLabels: {
+                color: '#FFFFFF',
+                font: {
+                  size: 14,
+                  family: 'Cairo'
+                }
+              },
+              ticks: {
+                color: '#FFFFFF',
+                backdropColor: 'transparent',
+                font: {
+                  size: 12
+                }
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              labels: {
+                color: '#FFFFFF',
+                font: {
+                  size: 14,
+                  family: 'Cairo'
+                }
+              }
+            }
+          }
+        }
+      });
+      
+      // إضافة تأثيرات التفاعل للبطاقات
+      document.querySelectorAll('.conclusion-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'translateY(-5px)';
+          card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+          card.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'translateY(0)';
+          card.style.boxShadow = 'none';
+          card.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        });
+      });
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المقدمة</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Cairo', sans-serif;
+        overflow-x: hidden;
+      }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      h1, h2, h3 {
+        font-family: 'Tajawal', sans-serif;
+      }
+      .title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #FFFFFF;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .content {
+        font-size: 20px;
+        color: #FFFFFF;
+        line-height: 1.6;
+      }
+      .highlight {
+        color: #10B981;
+        font-weight: 700;
+      }
+      .card {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+      .challenge-icon {
+        font-size: 24px;
+        color: #10B981;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container flex flex-col p-10 relative">
+      <div class="particles" id="particles"></div>
+      
+      <div class="z-10 mb-8">
+        <h1 class="title mb-6 text-center">المقدمة</h1>
+      </div>
+      
+      <div class="flex flex-row justify-between z-10">
+        <div class="w-1/2 pl-6">
+          <div class="content mb-6">
+            <p class="mb-4">يشهد العالم اليوم <span class="highlight">تحولًا جذريًا</span> في كيفية تنفيذ المهام اليومية، مدفوعًا بالتقدم المتسارع في مجالات الذكاء الاصطناعي والرؤية الحاسوبية.</p>
+            
+            <p class="mb-4">ينطلق هذا المشروع تحت عنوان <span class="highlight">"نظام بصمة الوجه لتوثيق الحضور والغياب في الزمن الحقيقي"</span>، بهدف تطوير نظام ذكي قادر على تسجيل الحضور آليًا باستخدام تقنيات التعرف على الوجه، دون تدخل بشري.</p>
+            
+            <p>يعتمد النظام على خوارزمية <span class="highlight">LBPH</span> لتحليل نسيج الوجه وتمثيله رقميًا، إلى جانب استخدام نموذج <span class="highlight">SSD-ResNet10</span> لاكتشاف موقع الوجه في الصورة بدقة وزمن استجابة منخفض.</p>
+          </div>
+        </div>
+        
+        <div class="w-1/2 pr-6">
+          <div class="card p-6 mb-6">
+            <h3 class="text-xl font-bold text-white mb-4">التحديات الحالية في أنظمة الحضور التقليدية:</h3>
+            <ul class="list-none">
+              <li class="mb-3 flex items-center"><i class="fas fa-exclamation-triangle challenge-icon"></i> الافتقار إلى الدقة وإمكانية التلاعب</li>
+              <li class="mb-3 flex items-center"><i class="fas fa-clock challenge-icon"></i> استهلاك وقت إداري كبير</li>
+              <li class="mb-3 flex items-center"><i class="fas fa-chart-line challenge-icon"></i> انخفاض الكفاءة وصعوبة المتابعة</li>
+              <li class="flex items-center"><i class="fas fa-file-alt challenge-icon"></i> صعوبة توليد التقارير وتحليل البيانات</li>
+            </ul>
+          </div>
+          
+          <div class="card p-6">
+            <h3 class="text-xl font-bold text-white mb-4">مميزات النظام المقترح:</h3>
+            <ul class="list-none">
+              <li class="mb-3 flex items-center"><i class="fas fa-check-circle text-green-400 text-xl ml-2"></i> تسجيل الحضور آليًا دون تدخل بشري</li>
+              <li class="mb-3 flex items-center"><i class="fas fa-check-circle text-green-400 text-xl ml-2"></i> دقة عالية في التعرف على الوجوه</li>
+              <li class="mb-3 flex items-center"><i class="fas fa-check-circle text-green-400 text-xl ml-2"></i> واجهة رسومية باللغة العربية</li>
+              <li class="flex items-center"><i class="fas fa-check-circle text-green-400 text-xl ml-2"></i> توليد تقارير بصيغ متعددة</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // إنشاء تأثير الجسيمات ثلاثية الأبعاد
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, 1280 / 720, 0.1, 1000);
+      
+      const renderer = new THREE.WebGLRenderer({ alpha: true });
+      renderer.setSize(1280, 720);
+      document.getElementById('particles').appendChild(renderer.domElement);
+      
+      // إضافة الجسيمات
+      const particlesGeometry = new THREE.BufferGeometry();
+      const particlesCount = 100;
+      
+      const posArray = new Float32Array(particlesCount * 3);
+      
+      for(let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 1000;
+      }
+      
+      particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+      
+      const particlesMaterial = new THREE.PointsMaterial({
+        size: 2,
+        color: 0xFFFFFF,
+        transparent: true,
+        opacity: 0.3
+      });
+      
+      const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+      scene.add(particlesMesh);
+      
+      camera.position.z = 400;
+      
+      // تحريك الجسيمات
+      function animate() {
+        requestAnimationFrame(animate);
+        particlesMesh.rotation.x += 0.0003;
+        particlesMesh.rotation.y += 0.0003;
+        renderer.render(scene, camera);
+      }
+      
+      animate();
+      
+      // إضافة تأثير التفاعل للبطاقات
+      document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'translateY(-5px)';
+          card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'translateY(0)';
+          card.style.boxShadow = 'none';
+        });
+      });
+    </script>
+  </body>
+</html>
+

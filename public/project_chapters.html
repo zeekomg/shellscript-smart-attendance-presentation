@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فصول المشروع</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Cairo', sans-serif;
+        overflow-x: hidden;
+      }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      h1, h2, h3 {
+        font-family: 'Tajawal', sans-serif;
+      }
+      .title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #FFFFFF;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .content {
+        font-size: 20px;
+        color: #FFFFFF;
+        line-height: 1.6;
+      }
+      .highlight {
+        color: #10B981;
+        font-weight: 700;
+      }
+      .chapter-box {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+      .chapter-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+      .chapter-icon {
+        font-size: 24px;
+        color: #10B981;
+        margin-left: 10px;
+      }
+      .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+      .chapter-progress {
+        height: 8px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .progress-bar {
+        height: 100%;
+        background-color: #10B981;
+        border-radius: 4px;
+        transition: width 1s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container flex flex-col p-10 relative">
+      <div class="particles" id="particles"></div>
+      
+      <div class="z-10 mb-6">
+        <h1 class="title mb-4 text-center">فصول المشروع</h1>
+        <p class="content text-center mb-6">يتضمن كتاب المشروع ستة فصول رئيسية تغطي جميع جوانب النظام المقترح</p>
+      </div>
+      
+      <div class="grid grid-cols-2 gap-6 z-10">
+        <div class="chapter-box p-5" id="chapter1">
+          <div class="flex items-center mb-2">
+            <i class="fas fa-book-open chapter-icon"></i>
+            <h3 class="text-xl font-bold text-white">الفصل الأول: الإطار النظري والدراسات السابقة</h3>
+          </div>
+          <p class="text-white mb-3">يتناول هذا الفصل المفاهيم الأساسية للذكاء الاصطناعي، وتقنيات التعرف على الوجه، ومراجعة لأبرز الأنظمة المشابهة.</p>
+          <div class="chapter-progress">
+            <div class="progress-bar" style="width: 100%;"></div>
+          </div>
+        </div>
+        
+        <div class="chapter-box p-5" id="chapter2">
+          <div class="flex items-center mb-2">
+            <i class="fas fa-search chapter-icon"></i>
+            <h3 class="text-xl font-bold text-white">الفصل الثاني: تحليل النظام وجمع المتطلبات</h3>
+          </div>
+          <p class="text-white mb-3">يتم فيه تحليل احتياجات المستخدمين، وتحديد خصائص النظام، وبيئة التشغيل، مع وضع تصور مبدئي للوظائف المطلوبة.</p>
+          <div class="chapter-progress">
+            <div class="progress-bar" style="width: 90%;"></div>
+          </div>
+        </div>
+        
+        <div class="chapter-box p-5" id="chapter3">
+          <div class="flex items-center mb-2">
+            <i class="fas fa-database chapter-icon"></i>
+            <h3 class="text-xl font-bold text-white">الفصل الثالث: تصميم قاعدة البيانات والنظام</h3>
+          </div>
+          <p class="text-white mb-3">يشمل تصميم قاعدة البيانات باستخدام نموذج الكيانات والعلاقات (ERD)، وتصميم هيكل النظام ووحداته البرمجية.</p>
+          <div class="chapter-progress">
+            <div class="progress-bar" style="width: 85%;"></div>
+          </div>
+        </div>
+        
+        <div class="chapter-box p-5" id="chapter4">
+          <div class="flex items-center mb-2">
+            <i class="fas fa-cogs chapter-icon"></i>
+            <h3 class="text-xl font-bold text-white">الفصل الرابع: تنفيذ النظام وتكامل المكونات</h3>
+          </div>
+          <p class="text-white mb-3">يُعرض فيه الجانب العملي لتطوير النظام، بما في ذلك تفاصيل استخدام خوارزمية (LBPH)، نموذج الكشف (SSD)، وبناء الواجهة الرسومية.</p>
+          <div class="chapter-progress">
+            <div class="progress-bar" style="width: 80%;"></div>
+          </div>
+        </div>
+        
+        <div class="chapter-box p-5" id="chapter5">
+          <div class="flex items-center mb-2">
+            <i class="fas fa-vial chapter-icon"></i>
+            <h3 class="text-xl font-bold text-white">الفصل الخامس: اختبار النظام وتقييم الأداء</h3>
+          </div>
+          <p class="text-white mb-3">يتضمن سيناريوهات الاختبار، وتقييم دقة التعرف، وسرعة الاستجابة، وتحليل التحديات المرتبطة بظروف الإضاءة وزوايا التصوير.</p>
+          <div class="chapter-progress">
+            <div class="progress-bar" style="width: 75%;"></div>
+          </div>
+        </div>
+        
+        <div class="chapter-box p-5" id="chapter6">
+          <div class="flex items-center mb-2">
+            <i class="fas fa-flag-checkered chapter-icon"></i>
+            <h3 class="text-xl font-bold text-white">الفصل السادس: الخاتمة والتوصيات المستقبلية</h3>
+          </div>
+          <p class="text-white mb-3">يستعرض أبرز النتائج التي تم الوصول إليها، ويقترح تطويرات مستقبلية مثل إضافة خاصية مقاومة الخداع والتكامل مع أنظمة التعليم الإلكتروني.</p>
+          <div class="chapter-progress">
+            <div class="progress-bar" style="width: 70%;"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="z-10 mt-6">
+        <div style="height: 200px;">
+          <canvas id="chaptersChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // إنشاء تأثير الجسيمات ثلاثية الأبعاد
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, 1280 / 720, 0.1, 1000);
+      
+      const renderer = new THREE.WebGLRenderer({ alpha: true });
+      renderer.setSize(1280, 720);
+      document.getElementById('particles').appendChild(renderer.domElement);
+      
+      // إضافة الجسيمات
+      const particlesGeometry = new THREE.BufferGeometry();
+      const particlesCount = 100;
+      
+      const posArray = new Float32Array(particlesCount * 3);
+      
+      for(let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 1000;
+      }
+      
+      particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+      
+      const particlesMaterial = new THREE.PointsMaterial({
+        size: 2,
+        color: 0xFFFFFF,
+        transparent: true,
+        opacity: 0.3
+      });
+      
+      const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+      scene.add(particlesMesh);
+      
+      camera.position.z = 400;
+      
+      // تحريك الجسيمات
+      function animate() {
+        requestAnimationFrame(animate);
+        particlesMesh.rotation.x += 0.0003;
+        particlesMesh.rotation.y += 0.0003;
+        renderer.render(scene, camera);
+      }
+      
+      animate();
+      
+      // إضافة تأثيرات التفاعل للفصول
+      const chapters = ['chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6'];
+      
+      chapters.forEach((chapter, index) => {
+        const box = document.getElementById(chapter);
+        
+        // تأخير ظهور الفصول
+        setTimeout(() => {
+          box.style.opacity = '1';
+          box.style.transform = 'translateX(0)';
+        }, 200 * index);
+      });
+      
+      // إنشاء الرسم البياني
+      const ctx = document.getElementById('chaptersChart').getContext('2d');
+      const chaptersChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['الفصل الأول', 'الفصل الثاني', 'الفصل الثالث', 'الفصل الرابع', 'الفصل الخامس', 'الفصل السادس'],
+          datasets: [{
+            label: 'نسبة الإنجاز',
+            data: [100, 90, 85, 80, 75, 70],
+            backgroundColor: [
+              '#10B981',
+              '#10B981',
+              '#10B981',
+              '#10B981',
+              '#10B981',
+              '#10B981'
+            ],
+            borderColor: [
+              '#FFFFFF',
+              '#FFFFFF',
+              '#FFFFFF',
+              '#FFFFFF',
+              '#FFFFFF',
+              '#FFFFFF'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return `نسبة الإنجاز: ${context.raw}%`;
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              ticks: {
+                color: '#FFFFFF'
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              }
+            },
+            x: {
+              ticks: {
+                color: '#FFFFFF'
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              }
+            }
+          }
+        }
+      });
+      
+      // تحريك شريط التقدم
+      const progressBars = document.querySelectorAll('.progress-bar');
+      progressBars.forEach((bar) => {
+        const width = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 500);
+      });
+    </script>
+  </body>
+</html>
+

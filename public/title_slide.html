@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آلية ذكية لتوثيق الحضور والانصراف</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Cairo', sans-serif;
+        overflow-x: hidden;
+      }
+      @media (max-width: 768px) {
+  .slide-frame {
+    width: 90vw; /* 90% من عرض الشاشة */
+    aspect-ratio: 16 / 9;
+    max-width: 1280px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: white;
+}
+
+  .navigation,
+  .control-panel,
+  .slide-title,
+  .slide-counter {
+    transform: scale(0.8);         /* تصغير بقية العناصر */
+    transform-origin: top center;
+  }
+}
+
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      h1, h2, h3 {
+        font-family: 'Tajawal', sans-serif;
+      }
+      .title {
+        font-size: 64px; /* تصغير حجم الخط قليلاً لإفساح المجال */
+        font-weight: 700;
+        color: #FFFFFF;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+      .subtitle {
+        font-size: 32px; /* تصغير حجم الخط قليلاً */
+        font-weight: 500;
+        color: #FFFFFF;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      .university {
+        font-size: 24px;
+        color: #FFFFFF;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      }
+      .floating-icon {
+        position: absolute;
+        animation: float 6s ease-in-out infinite;
+        opacity: 0.8;
+      }
+      @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+      }
+      .icon1 {
+        top: 100px;
+        right: 100px;
+        animation-delay: 0s;
+      }
+      .icon2 {
+        bottom: 150px;
+        right: 200px;
+        animation-delay: 1s;
+      }
+      .icon3 {
+        top: 200px;
+        left: 150px;
+        animation-delay: 2s;
+      }
+      .icon4 {
+        bottom: 100px;
+        left: 100px;
+        animation-delay: 3s;
+      }
+      .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+      /* --- كود التنسيق الجديد --- */
+      .student-info {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        color: #FFFFFF;
+        text-align: center;
+      }
+      .student-info h3 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #10B981; /* استخدام اللون المميز */
+        margin-bottom: 10px;
+      }
+      .student-info ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* عرض الطلاب في عمودين */
+        gap: 10px 20px;
+      }
+      .student-info li {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container flex flex-col items-center justify-center p-10 relative">
+      <div class="particles" id="particles"></div>
+      
+      <img src="images/ai_icon.png" alt="الذكاء الاصطناعي" class="floating-icon icon1" width="80" height="80">
+      <img src="images/face_recognition_icon.png" alt="التعرف على الوجه" class="floating-icon icon2" width="80" height="80">
+      <img src="images/attendance_icon.png" alt="نظام الحضور" class="floating-icon icon3" width="80" height="80">
+      <img src="images/computer_vision_icon.png" alt="الرؤية الحاسوبية" class="floating-icon icon4" width="80" height="80">
+      
+      <div class="z-10 text-center mb-4">
+        <h1 class="title mb-4">آلية ذكية لتوثيق الحضور والانصراف</h1>
+        <h2 class="subtitle mb-3">بالاعتماد على تقنيات الذكاء الاصطناعي في التعرف على الوجوه</h2>
+      </div>
+      
+      <div class="university z-10">
+        <p class="text-center">جامعة أجدابيا - كلية تقنية المعلومات</p>
+      </div>
+
+      <div class="student-info z-10">
+        <h3>إعداد الطلاب:</h3>
+        <ul>
+          <li>ابراهيم فرج محمد جمعة - 81910076</li>
+          <li>احمد سالم رمضان ادهیم - 82120136</li>
+          <li>عبد المالك هدية عبد الله يونس - 82120103</li>
+          <li>عبد الروؤف ادريس ديدح - 82120213</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <script>
+      // إنشاء تأثير الجسيمات ثلاثية الأبعاد
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, 1280 / 720, 0.1, 1000);
+      
+      const renderer = new THREE.WebGLRenderer({ alpha: true });
+      renderer.setSize(1280, 720);
+      document.getElementById('particles').appendChild(renderer.domElement);
+      
+      // إضافة الجسيمات
+      const particlesGeometry = new THREE.BufferGeometry();
+      const particlesCount = 200;
+      
+      const posArray = new Float32Array(particlesCount * 3);
+      
+      for(let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 1000;
+      }
+      
+      particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+      
+      const particlesMaterial = new THREE.PointsMaterial({
+        size: 3,
+        color: 0xFFFFFF,
+        transparent: true,
+        opacity: 0.5
+      });
+      
+      const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+      scene.add(particlesMesh);
+      
+      camera.position.z = 400;
+      
+      // تحريك الجسيمات
+      function animate() {
+        requestAnimationFrame(animate);
+        particlesMesh.rotation.x += 0.0005;
+        particlesMesh.rotation.y += 0.0005;
+        renderer.render(scene, camera);
+      }
+      
+      animate();
+    </script>
+  </body>
+</html>
