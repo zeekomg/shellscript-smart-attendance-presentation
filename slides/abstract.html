@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المستخلص</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Tajawal', sans-serif; }
+        
+        .abstract-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .abstract-box:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .feature-item {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateX(-5px);
+        }
+        
+        .chart-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particleFloat 6s infinite linear;
+        }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            .title { font-size: 1.875rem !important; }
+            .content { font-size: 0.875rem !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-10 relative">
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="z-10 relative">
+        <div class="mb-8">
+            <h1 class="title text-3xl md:text-4xl font-bold text-white mb-6 text-center">المستخلص</h1>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Abstract Content -->
+            <div class="space-y-6">
+                <div class="abstract-box rounded-2xl p-6">
+                    <p class="content text-base md:text-lg text-white leading-relaxed">
+                        في ظل التحول الرقمي المتسارع، تبرز الحاجة إلى أنظمة ذكية تعزز من كفاءة العمليات الإدارية، وتُسهم في تحقيق النزاهة والشفافية داخل المؤسسات التعليمية. يستعرض هذا المشروع تصميم وتطوير نظام آلي لتوثيق الحضور والغياب بالاعتماد على تقنية التعرف على الوجه، دون تدخل بشري مباشر.
+                    </p>
+                </div>
+                
+                <div class="content text-base md:text-lg text-white leading-relaxed space-y-4">
+                    <p>
+                        يعتمد النظام على خوارزمية <span class="text-green-400 font-bold">LBPH</span> لتحديد ملامح الوجه وتحليلها بدقة، مدعومًا بشبكة الكشف <span class="text-green-400 font-bold">SSD-ResNet10</span>، مما يتيح التعرف على المستخدمين في الزمن الحقيقي باستخدام كاميرا ويب تقليدية.
+                    </p>
+                    
+                    <p>
+                        يمثل المشروع نموذجًا تطبيقيًا يجمع بين القيمة التقنية والبُعد الإنساني، من خلال تقديم نظام يتسم بالدقة، الكفاءة، والحيادية، ويهيئ أرضية قابلة للتطوير مستقبلًا.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- System Components & Chart -->
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg md:text-xl font-bold text-white mb-4">المكونات الرئيسية للنظام:</h3>
+                    <div class="space-y-4">
+                        <div class="feature-item flex items-start">
+                            <i class="fas fa-camera text-green-400 text-lg md:text-xl ml-3 mt-1"></i>
+                            <div>
+                                <h4 class="text-base md:text-lg font-bold text-white">وحدة التقاط الصور</h4>
+                                <p class="text-white text-sm md:text-base">تستخدم كاميرا ويب قياسية لالتقاط صور الوجوه في الزمن الحقيقي.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item flex items-start">
+                            <i class="fas fa-brain text-blue-400 text-lg md:text-xl ml-3 mt-1"></i>
+                            <div>
+                                <h4 class="text-base md:text-lg font-bold text-white">وحدة التعرف على الوجوه</h4>
+                                <p class="text-white text-sm md:text-base">تعتمد على خوارزمية LBPH ونموذج SSD-ResNet10 للتعرف على الوجوه بدقة عالية.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item flex items-start">
+                            <i class="fas fa-database text-yellow-400 text-lg md:text-xl ml-3 mt-1"></i>
+                            <div>
+                                <h4 class="text-base md:text-lg font-bold text-white">قاعدة البيانات</h4>
+                                <p class="text-white text-sm md:text-base">قاعدة بيانات محلية (SQLite) لتخزين بيانات المستخدمين وسجلات الحضور.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item flex items-start">
+                            <i class="fas fa-desktop text-purple-400 text-lg md:text-xl ml-3 mt-1"></i>
+                            <div>
+                                <h4 class="text-base md:text-lg font-bold text-white">واجهة المستخدم الرسومية</h4>
+                                <p class="text-white text-sm md:text-base">واجهة رسومية باللغة العربية مطورة بلغة Python، توفر إمكانيات تسجيل البيانات وعرض التقارير.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Accuracy Chart -->
+                <div class="chart-container rounded-2xl p-6">
+                    <div class="h-48 md:h-64">
+                        <canvas id="accuracyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Create accuracy chart
+        function createAccuracyChart() {
+            const ctx = document.getElementById('accuracyChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['ظروف إضاءة جيدة', 'ظروف إضاءة منخفضة', 'زوايا مختلفة', 'مسافات متفاوتة'],
+                    datasets: [{
+                        label: 'دقة التعرف على الوجوه (%)',
+                        data: [98, 85, 90, 92],
+                        backgroundColor: [
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(59, 130, 246, 0.7)',
+                            'rgba(245, 158, 11, 0.7)',
+                            'rgba(139, 92, 246, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(59, 130, 246, 1)',
+                            'rgba(245, 158, 11, 1)',
+                            'rgba(139, 92, 246, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#FFFFFF',
+                                font: {
+                                    size: window.innerWidth < 768 ? 10 : 14
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                color: '#FFFFFF',
+                                font: {
+                                    size: window.innerWidth < 768 ? 10 : 12
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#FFFFFF',
+                                font: {
+                                    size: window.innerWidth < 768 ? 8 : 12
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Animate feature items
+        function animateFeatureItems() {
+            const items = document.querySelectorAll('.feature-item');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, 200 * index);
+            });
+        }
+        
+        createParticles();
+        createAccuracyChart();
+        animateFeatureItems();
+    </script>
+</body>
+</html>

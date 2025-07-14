@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التطويرات المستقبلية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Tajawal', sans-serif; }
+        
+        .feature-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px) rotateY(5deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .chart-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particleFloat 6s infinite linear;
+        }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            .title { font-size: 1.875rem !important; }
+            .content { font-size: 0.875rem !important; }
+            .feature-item { margin-bottom: 1rem !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-10 relative">
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="z-10 relative">
+        <div class="mb-8">
+            <h1 class="title text-3xl md:text-4xl font-bold text-white mb-6 text-center">التطويرات المستقبلية</h1>
+            <p class="content text-base md:text-lg text-white text-center mb-6">
+                يقترح المشروع عدة تطويرات مستقبلية لتعزيز أداء النظام وتوسيع نطاق تطبيقه
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Priority Chart -->
+            <div class="space-y-6">
+                <div class="chart-container rounded-2xl p-6">
+                    <div class="h-64 md:h-80">
+                        <canvas id="priorityChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="content text-base md:text-lg text-white leading-relaxed">
+                    <p>تم تحديد أولويات التطوير المستقبلي بناءً على احتياجات المستخدمين والتحديات التقنية التي تمت مواجهتها خلال تطوير النظام الحالي. تعتبر مقاومة الخداع والتكامل مع أنظمة التعليم الإلكتروني من أهم الأولويات نظرًا لتأثيرهما المباشر على موثوقية النظام وقابلية استخدامه في بيئات تعليمية متكاملة.</p>
+                </div>
+            </div>
+            
+            <!-- Future Features -->
+            <div class="space-y-4">
+                <div class="feature-item rounded-2xl p-4 md:p-6" id="feature1">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-shield-alt text-green-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">مقاومة الخداع (Liveness Detection)</h3>
+                    </div>
+                    <p class="text-white text-sm md:text-base">إضافة تقنيات للتمييز بين الوجه الحقيقي والصور أو الفيديوهات المزيفة، مما يعزز أمان النظام ويمنع التلاعب.</p>
+                </div>
+                
+                <div class="feature-item rounded-2xl p-4 md:p-6" id="feature2">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-plug text-blue-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">التكامل مع أنظمة التعليم الإلكتروني</h3>
+                    </div>
+                    <p class="text-white text-sm md:text-base">دمج النظام مع منصات التعليم الإلكتروني مثل Moodle لتسجيل حضور الطلاب في المحاضرات الافتراضية.</p>
+                </div>
+                
+                <div class="feature-item rounded-2xl p-4 md:p-6" id="feature3">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-mobile-alt text-yellow-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">تطبيق للهواتف الذكية</h3>
+                    </div>
+                    <p class="text-white text-sm md:text-base">تطوير تطبيق للهواتف الذكية يتيح للمستخدمين تسجيل الحضور عن بُعد وعرض سجلات الحضور الخاصة بهم.</p>
+                </div>
+                
+                <div class="feature-item rounded-2xl p-4 md:p-6" id="feature4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-brain text-purple-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">تحسين خوارزميات التعرف</h3>
+                    </div>
+                    <p class="text-white text-sm md:text-base">استخدام تقنيات التعلم العميق المتقدمة لتحسين دقة التعرف على الوجوه في ظروف الإضاءة المختلفة وزوايا التصوير المتنوعة.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Create priority chart
+        function createPriorityChart() {
+            const ctx = document.getElementById('priorityChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'مقاومة الخداع',
+                        'التكامل مع أنظمة التعليم',
+                        'تطبيق الهواتف الذكية',
+                        'تحسين الخوارزميات',
+                        'تحليل البيانات',
+                        'دعم اللغات'
+                    ],
+                    datasets: [{
+                        label: 'أولوية التطوير',
+                        data: [90, 85, 70, 80, 60, 50],
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderColor: '#10B981',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#FFFFFF',
+                        pointBorderColor: '#10B981',
+                        pointHoverBackgroundColor: '#10B981',
+                        pointHoverBorderColor: '#FFFFFF'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(255, 255, 255, 0.2)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.2)'
+                            },
+                            pointLabels: {
+                                color: '#FFFFFF',
+                                font: {
+                                    size: window.innerWidth < 768 ? 10 : 14,
+                                    family: 'Cairo'
+                                }
+                            },
+                            ticks: {
+                                color: '#FFFFFF',
+                                backdropColor: 'transparent',
+                                font: {
+                                    size: window.innerWidth < 768 ? 8 : 12
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#FFFFFF',
+                                font: {
+                                    size: window.innerWidth < 768 ? 10 : 14,
+                                    family: 'Cairo'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Animate features
+        function animateFeatures() {
+            const features = ['feature1', 'feature2', 'feature3', 'feature4'];
+            
+            features.forEach((feature, index) => {
+                const item = document.getElementById(feature);
+                
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, 300 * index);
+            });
+        }
+        
+        createParticles();
+        createPriorityChart();
+        animateFeatures();
+    </script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فصول المشروع</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Tajawal', sans-serif; }
+        
+        .chapter-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .chapter-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: #10B981;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        .chapter-progress {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .chart-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particleFloat 6s infinite linear;
+        }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            .title { font-size: 1.875rem !important; }
+            .content { font-size: 0.875rem !important; }
+            .chapter-box { margin-bottom: 1rem !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-10 relative">
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="z-10 relative">
+        <div class="mb-8">
+            <h1 class="title text-3xl md:text-4xl font-bold text-white mb-6 text-center">فصول المشروع</h1>
+            <p class="content text-base md:text-lg text-white text-center mb-6">
+                يتضمن كتاب المشروع ستة فصول رئيسية تغطي جميع جوانب النظام المقترح
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-8">
+            <div class="chapter-box rounded-2xl p-4 md:p-6" id="chapter1">
+                <div class="flex items-center mb-3">
+                    <i class="fas fa-book-open text-green-400 text-lg md:text-xl ml-3"></i>
+                    <h3 class="text-base md:text-lg font-bold text-white">الفصل الأول</h3>
+                </div>
+                <h4 class="text-sm md:text-base font-semibold text-green-400 mb-2">الإطار النظري والدراسات السابقة</h4>
+                <p class="text-white text-xs md:text-sm mb-3">يتناول هذا الفصل المفاهيم الأساسية للذكاء الاصطناعي، وتقنيات التعرف على الوجه، ومراجعة لأبرز الأنظمة المشابهة.</p>
+                <div class="chapter-progress">
+                    <div class="progress-bar" style="width: 100%;"></div>
+                </div>
+            </div>
+            
+            <div class="chapter-box rounded-2xl p-4 md:p-6" id="chapter2">
+                <div class="flex items-center mb-3">
+                    <i class="fas fa-search text-blue-400 text-lg md:text-xl ml-3"></i>
+                    <h3 class="text-base md:text-lg font-bold text-white">الفصل الثاني</h3>
+                </div>
+                <h4 class="text-sm md:text-base font-semibold text-blue-400 mb-2">تحليل النظام وجمع المتطلبات</h4>
+                <p class="text-white text-xs md:text-sm mb-3">يتم فيه تحليل احتياجات المستخدمين، وتحديد خصائص النظام، وبيئة التشغيل، مع وضع تصور مبدئي للوظائف المطلوبة.</p>
+                <div class="chapter-progress">
+                    <div class="progress-bar" style="width: 90%;"></div>
+                </div>
+            </div>
+            
+            <div class="chapter-box rounded-2xl p-4 md:p-6" id="chapter3">
+                <div class="flex items-center mb-3">
+                    <i class="fas fa-database text-yellow-400 text-lg md:text-xl ml-3"></i>
+                    <h3 class="text-base md:text-lg font-bold text-white">الفصل الثالث</h3>
+                </div>
+                <h4 class="text-sm md:text-base font-semibold text-yellow-400 mb-2">تصميم قاعدة البيانات والنظام</h4>
+                <p class="text-white text-xs md:text-sm mb-3">يشمل تصميم قاعدة البيانات باستخدام نموذج الكيانات والعلاقات (ERD)، وتصميم هيكل النظام ووحداته البرمجية.</p>
+                <div class="chapter-progress">
+                    <div class="progress-bar" style="width: 85%;"></div>
+                </div>
+            </div>
+            
+            <div class="chapter-box rounded-2xl p-4 md:p-6" id="chapter4">
+                <div class="flex items-center mb-3">
+                    <i class="fas fa-cogs text-purple-400 text-lg md:text-xl ml-3"></i>
+                    <h3 class="text-base md:text-lg font-bold text-white">الفصل الرابع</h3>
+                </div>
+                <h4 class="text-sm md:text-base font-semibold text-purple-400 mb-2">تنفيذ النظام وتكامل المكونات</h4>
+                <p class="text-white text-xs md:text-sm mb-3">يُعرض فيه الجانب العملي لتطوير النظام، بما في ذلك تفاصيل استخدام خوارزمية (LBPH)، نموذج الكشف (SSD)، وبناء الواجهة الرسومية.</p>
+                <div class="chapter-progress">
+                    <div class="progress-bar" style="width: 80%;"></div>
+                </div>
+            </div>
+            
+            <div class="chapter-box rounded-2xl p-4 md:p-6" id="chapter5">
+                <div class="flex items-center mb-3">
+                    <i class="fas fa-vial text-red-400 text-lg md:text-xl ml-3"></i>
+                    <h3 class="text-base md:text-lg font-bold text-white">الفصل الخامس</h3>
+                </div>
+                <h4 class="text-sm md:text-base font-semibold text-red-400 mb-2">اختبار النظام وتقييم الأداء</h4>
+                <p class="text-white text-xs md:text-sm mb-3">يتضمن سيناريوهات الاختبار، وتقييم دقة التعرف، وسرعة الاستجابة، وتحليل التحديات المرتبطة بظروف الإضاءة وزوايا التصوير.</p>
+                <div class="chapter-progress">
+                    <div class="progress-bar" style="width: 75%;"></div>
+                </div>
+            </div>
+            
+            <div class="chapter-box rounded-2xl p-4 md:p-6" id="chapter6">
+                <div class="flex items-center mb-3">
+                    <i class="fas fa-flag-checkered text-pink-400 text-lg md:text-xl ml-3"></i>
+                    <h3 class="text-base md:text-lg font-bold text-white">الفصل السادس</h3>
+                </div>
+                <h4 class="text-sm md:text-base font-semibold text-pink-400 mb-2">الخاتمة والتوصيات المستقبلية</h4>
+                <p class="text-white text-xs md:text-sm mb-3">يستعرض أبرز النتائج التي تم الوصول إليها، ويقترح تطويرات مستقبلية مثل إضافة خاصية مقاومة الخداع والتكامل مع أنظمة التعليم الإلكتروني.</p>
+                <div class="chapter-progress">
+                    <div class="progress-bar" style="width: 70%;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Progress Chart -->
+        <div class="chart-container rounded-2xl p-6">
+            <div class="h-48 md:h-64">
+                <canvas id="chaptersChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Create chapters progress chart
+        function createChaptersChart() {
+            const ctx = document.getElementById('chaptersChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['الفصل الأول', 'الفصل الثاني', 'الفصل الثالث', 'الفصل الرابع', 'الفصل الخامس', 'الفصل السادس'],
+                    datasets: [{
+                        label: 'نسبة الإنجاز',
+                        data: [100, 90, 85, 80, 75, 70],
+                        backgroundColor: [
+                            '#10B981',
+                            '#3B82F6',
+                            '#F59E0B',
+                            '#8B5CF6',
+                            '#EF4444',
+                            '#EC4899'
+                        ],
+                        borderColor: [
+                            '#FFFFFF',
+                            '#FFFFFF',
+                            '#FFFFFF',
+                            '#FFFFFF',
+                            '#FFFFFF',
+                            '#FFFFFF'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `نسبة الإنجاز: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                color: '#FFFFFF',
+                                font: {
+                                    size: window.innerWidth < 768 ? 10 : 12
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#FFFFFF',
+                                font: {
+                                    size: window.innerWidth < 768 ? 8 : 12
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Animate chapters
+        function animateChapters() {
+            const chapters = ['chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6'];
+            
+            chapters.forEach((chapter, index) => {
+                const box = document.getElementById(chapter);
+                
+                setTimeout(() => {
+                    box.style.opacity = '1';
+                    box.style.transform = 'translateX(0)';
+                }, 200 * index);
+            });
+        }
+        
+        // Animate progress bars
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach((bar) => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        }
+        
+        createParticles();
+        createChaptersChart();
+        animateChapters();
+        animateProgressBars();
+    </script>
+</body>
+</html>

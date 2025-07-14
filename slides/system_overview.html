@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظرة عامة على النظام</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Tajawal', sans-serif; }
+        
+        .system-component {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .system-component:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .chart-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particleFloat 6s infinite linear;
+        }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            .title { font-size: 1.875rem !important; }
+            .content { font-size: 0.875rem !important; }
+            .system-component { margin-bottom: 1rem !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-10 relative">
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="z-10 relative">
+        <div class="mb-8">
+            <h1 class="title text-3xl md:text-4xl font-bold text-white mb-6 text-center">نظرة عامة على النظام</h1>
+            <p class="content text-base md:text-lg text-white text-center mb-6">
+                يتكون النظام من عدة مكونات رئيسية تعمل معًا لتحقيق دقة عالية في التعرف على الوجوه وتسجيل الحضور بشكل آلي.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Chart Section -->
+            <div class="space-y-6">
+                <div class="chart-container rounded-2xl p-6">
+                    <div class="h-64 md:h-80">
+                        <canvas id="accuracyChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="content text-base md:text-lg text-white leading-relaxed">
+                    <p>يوضح الرسم البياني مقارنة بين دقة خوارزميات التعرف على الوجه المختلفة، حيث تظهر خوارزمية <span class="text-green-400 font-bold">LBPH</span> أداءً متميزًا في ظروف الإضاءة المختلفة وزوايا التصوير المتنوعة، مع زمن استجابة منخفض مقارنة بالخوارزميات الأخرى.</p>
+                </div>
+            </div>
+            
+            <!-- System Components -->
+            <div class="space-y-4">
+                <div class="system-component rounded-2xl p-4 md:p-6" id="component1">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-camera text-green-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">وحدة التقاط الصور</h3>
+                    </div>
+                    <p class="text-white text-sm md:text-base">تستخدم كاميرا ويب تقليدية لالتقاط صور الوجوه في الزمن الحقيقي، مع إمكانية ضبط الإضاءة ومعالجة الصور.</p>
+                </div>
+                
+                <div class="system-component rounded-2xl p-4 md:p-6" id="component2">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-search text-blue-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">وحدة اكتشاف الوجه (SSD-ResNet10)</h3>
+                    </div>
+                    <p class="text-white text-sm md:text-base">تستخدم نموذج SSD-ResNet10 لاكتشاف موقع الوجه في الصورة بدقة عالية وزمن استجابة منخفض.</p>
+                </div>
+                
+                <div class="system-component rounded-2xl p-4 md:p-6" id="component3">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-fingerprint text-yellow-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">وحدة التعرف على الوجه (LBPH)</h3>
+                    </div>
+                    <p class="text-white text-sm md:text-base">تستخدم خوارزمية LBPH لتحليل نسيج الوجه وتمثيله رقميًا، مما يتيح التعرف على الوجوه بدقة عالية.</p>
+                </div>
+                
+                <div class="system-component rounded-2xl p-4 md:p-6" id="component4">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-database text-purple-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">قاعدة البيانات وواجهة المستخدم</h3>
+                    </div>
+                    <p class="text-white text-sm md:text-base">تستخدم قاعدة بيانات SQLite لتخزين البيانات، مع واجهة رسومية باللغة العربية تتيح إدارة المستخدمين وتوليد التقارير.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Create accuracy chart
+        function createAccuracyChart() {
+            const ctx = document.getElementById('accuracyChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'الدقة العامة',
+                        'الأداء في الإضاءة المنخفضة',
+                        'التعرف على زوايا مختلفة',
+                        'سرعة الاستجابة',
+                        'مقاومة التغيرات في الوجه'
+                    ],
+                    datasets: [
+                        {
+                            label: 'LBPH',
+                            data: [85, 78, 82, 90, 75],
+                            backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                            pointRadius: 4
+                        },
+                        {
+                            label: 'Eigenfaces',
+                            data: [75, 65, 70, 85, 60],
+                            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                            borderColor: 'rgba(59, 130, 246, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                            pointRadius: 4
+                        },
+                        {
+                            label: 'Fisherfaces',
+                            data: [80, 70, 75, 80, 65],
+                            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                            borderColor: 'rgba(255, 255, 255, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(255, 255, 255, 1)',
+                            pointRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(255, 255, 255, 0.2)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.2)'
+                            },
+                            pointLabels: {
+                                color: '#FFFFFF',
+                                font: {
+                                    size: window.innerWidth < 768 ? 10 : 14,
+                                    family: 'Cairo'
+                                }
+                            },
+                            ticks: {
+                                color: '#FFFFFF',
+                                backdropColor: 'transparent',
+                                font: {
+                                    size: window.innerWidth < 768 ? 8 : 12
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#FFFFFF',
+                                font: {
+                                    size: window.innerWidth < 768 ? 10 : 14,
+                                    family: 'Cairo'
+                                },
+                                padding: 20
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Animate components
+        function animateComponents() {
+            const components = ['component1', 'component2', 'component3', 'component4'];
+            
+            components.forEach((component, index) => {
+                const card = document.getElementById(component);
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateX(0)';
+                }, 300 * index);
+            });
+        }
+        
+        createParticles();
+        createAccuracyChart();
+        animateComponents();
+    </script>
+</body>
+</html>

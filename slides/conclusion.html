@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخاتمة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Tajawal', sans-serif; }
+        
+        .conclusion-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .conclusion-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .impact-item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .chart-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particleFloat 6s infinite linear;
+        }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            .title { font-size: 1.875rem !important; }
+            .content { font-size: 0.875rem !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-10 relative">
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="z-10 relative">
+        <div class="mb-8">
+            <h1 class="title text-3xl md:text-4xl font-bold text-white mb-6 text-center">الخاتمة</h1>
+            <p class="content text-base md:text-lg text-white text-center mb-6">
+                ملخص لأهم النتائج والإنجازات وتأثير المشروع على المؤسسات التعليمية
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Results and Achievements -->
+            <div class="space-y-6">
+                <div class="conclusion-card rounded-2xl p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-award text-green-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">أهم النتائج والإنجازات</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="impact-item flex items-start" style="animation-delay: 0.1s;">
+                            <i class="fas fa-check-circle text-green-400 text-lg ml-3 mt-1"></i>
+                            <p class="text-white text-sm md:text-base">تطوير نظام متكامل للتعرف على الوجوه بدقة تصل إلى <span class="text-green-400 font-bold">95%</span> في ظروف الإضاءة المناسبة</p>
+                        </li>
+                        <li class="impact-item flex items-start" style="animation-delay: 0.2s;">
+                            <i class="fas fa-check-circle text-green-400 text-lg ml-3 mt-1"></i>
+                            <p class="text-white text-sm md:text-base">تقليل الوقت المستغرق في عملية تسجيل الحضور بنسبة <span class="text-green-400 font-bold">80%</span> مقارنة بالطرق التقليدية</p>
+                        </li>
+                        <li class="impact-item flex items-start" style="animation-delay: 0.3s;">
+                            <i class="fas fa-check-circle text-green-400 text-lg ml-3 mt-1"></i>
+                            <p class="text-white text-sm md:text-base">تطوير واجهة مستخدم سهلة الاستخدام باللغة العربية تناسب احتياجات المؤسسات التعليمية</p>
+                        </li>
+                        <li class="impact-item flex items-start" style="animation-delay: 0.4s;">
+                            <i class="fas fa-check-circle text-green-400 text-lg ml-3 mt-1"></i>
+                            <p class="text-white text-sm md:text-base">إنشاء نظام تقارير متكامل يسمح بتحليل بيانات الحضور واستخراج إحصائيات دقيقة</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="content text-base md:text-lg text-white leading-relaxed">
+                    <p>لا يقتصر المشروع على تقديم حل تقني فحسب، بل يُعد مساهمة فاعلة في دعم التحول الرقمي في المؤسسات، وتعزيز مفاهيم العدالة والشفافية في تسجيل الحضور.</p>
+                </div>
+            </div>
+            
+            <!-- Impact and Future Vision -->
+            <div class="space-y-6">
+                <div class="conclusion-card rounded-2xl p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-university text-blue-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">تأثير المشروع على المؤسسات التعليمية</h3>
+                    </div>
+                    <div class="chart-container rounded-xl p-4">
+                        <div class="h-48 md:h-64">
+                            <canvas id="impactChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conclusion-card rounded-2xl p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-lightbulb text-yellow-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">الرؤية المستقبلية</h3>
+                    </div>
+                    <p class="text-white mb-4 text-sm md:text-base">يُشكل هذا المشروع أساسًا يمكن البناء عليه مستقبلًا لتطوير أنظمة أكثر تطورًا وذكاءً في مجال إدارة الموارد البشرية والتعليم الإلكتروني، مع إمكانية:</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-arrow-circle-right text-white ml-3"></i>
+                            <p class="text-white text-sm md:text-base">التكامل مع أنظمة التعليم الإلكتروني مثل Moodle</p>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-arrow-circle-right text-white ml-3"></i>
+                            <p class="text-white text-sm md:text-base">إضافة خاصية مقاومة الخداع (Liveness Detection)</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Create impact chart
+        function createImpactChart() {
+            const ctx = document.getElementById('impactChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'تحسين الكفاءة الإدارية',
+                        'تقليل التكاليف',
+                        'زيادة الدقة',
+                        'تعزيز الشفافية',
+                        'توفير الوقت',
+                        'سهولة المتابعة'
+                    ],
+                    datasets: [{
+                        label: 'تأثير النظام المقترح',
+                        data: [90, 75, 95, 85, 80, 90],
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderColor: '#10B981',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#FFFFFF',
+                        pointBorderColor: '#10B981',
+                        pointHoverBackgroundColor: '#10B981',
+                        pointHoverBorderColor: '#FFFFFF'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(255, 255, 255, 0.2)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.2)'
+                            },
+                            pointLabels: {
+                                color: '#FFFFFF',
+                                font: {
+                                    size: window.innerWidth < 768 ? 8 : 12,
+                                    family: 'Cairo'
+                                }
+                            },
+                            ticks: {
+                                color: '#FFFFFF',
+                                backdropColor: 'transparent',
+                                font: {
+                                    size: window.innerWidth < 768 ? 6 : 10
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#FFFFFF',
+                                font: {
+                                    size: window.innerWidth < 768 ? 10 : 14,
+                                    family: 'Cairo'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        createParticles();
+        createImpactChart();
+    </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منهجية التطوير</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Tajawal', sans-serif; }
+        
+        .phase-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .phase-card:hover {
+            transform: translateY(-5px) rotateY(5deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .spiral-model {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particleFloat 6s infinite linear;
+        }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        .spiral-animation {
+            animation: spiralRotate 10s infinite linear;
+        }
+        
+        @keyframes spiralRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .title { font-size: 1.875rem !important; }
+            .content { font-size: 0.875rem !important; }
+            .phase-card { margin-bottom: 1rem !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-10 relative">
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="z-10 relative">
+        <div class="mb-8">
+            <h1 class="title text-3xl md:text-4xl font-bold text-white mb-6 text-center">منهجية التطوير</h1>
+            <p class="content text-base md:text-lg text-white text-center mb-6">
+                تم اعتماد استخدام <span class="text-green-400 font-bold">المنهجية الحلزونية (Spiral Model)</span> لتطوير النظام، لما توفره من مرونة في التعامل مع المتطلبات المتغيرة.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Spiral Model Visualization -->
+            <div class="space-y-6">
+                <div class="spiral-model rounded-2xl p-6 h-64 md:h-80 flex items-center justify-center">
+                    <div class="spiral-animation relative">
+                        <div class="w-32 h-32 md:w-48 md:h-48 border-4 border-green-400 rounded-full relative">
+                            <div class="absolute top-2 right-2 w-4 h-4 bg-green-400 rounded-full"></div>
+                            <div class="absolute top-1/2 right-0 w-3 h-3 bg-blue-400 rounded-full"></div>
+                            <div class="absolute bottom-2 right-2 w-4 h-4 bg-yellow-400 rounded-full"></div>
+                            <div class="absolute bottom-0 left-1/2 w-3 h-3 bg-purple-400 rounded-full"></div>
+                            <div class="absolute bottom-2 left-2 w-4 h-4 bg-red-400 rounded-full"></div>
+                            <div class="absolute top-1/2 left-0 w-3 h-3 bg-pink-400 rounded-full"></div>
+                            <div class="absolute top-2 left-2 w-4 h-4 bg-indigo-400 rounded-full"></div>
+                            <div class="absolute top-0 left-1/2 w-3 h-3 bg-orange-400 rounded-full"></div>
+                            
+                            <!-- Center spiral -->
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <div class="w-16 h-16 md:w-24 md:h-24 border-2 border-white rounded-full flex items-center justify-center">
+                                    <i class="fas fa-cog text-white text-2xl md:text-3xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content text-base md:text-lg text-white leading-relaxed">
+                    <p>تتميز المنهجية الحلزونية بالمرونة والقدرة على التكيف مع المتطلبات المتغيرة، وتقييم المخاطر في كل دورة تطويرية. ساهم هذا النهج في تحسين النظام بشكل تدريجي، خاصة في الجوانب التي تتطلب اختبارًا ميدانيًا مثل الإضاءة، زوايا التصوير، وسرعة الاستجابة.</p>
+                </div>
+            </div>
+            
+            <!-- Development Phases -->
+            <div class="space-y-4">
+                <div class="phase-card rounded-2xl p-4 md:p-6" style="animation-delay: 0.1s;">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-tasks text-green-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">1. التخطيط</h3>
+                    </div>
+                    <p class="text-white text-sm md:text-base">تحديد أهداف المشروع، وتحديد المتطلبات، وتقييم المخاطر المحتملة.</p>
+                </div>
+                
+                <div class="phase-card rounded-2xl p-4 md:p-6" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-pencil-ruler text-blue-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">2. التصميم</h3>
+                    </div>
+                    <p class="text-white text-sm md:text-base">تصميم النظام، وتحديد المكونات الرئيسية، واختيار الخوارزميات والتقنيات المناسبة.</p>
+                </div>
+                
+                <div class="phase-card rounded-2xl p-4 md:p-6" style="animation-delay: 0.3s;">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-code text-yellow-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">3. التنفيذ</h3>
+                    </div>
+                    <p class="text-white text-sm md:text-base">كتابة الكود، واختبار الوحدات، وتكامل النظام بشكل متكامل.</p>
+                </div>
+                
+                <div class="phase-card rounded-2xl p-4 md:p-6" style="animation-delay: 0.4s;">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-chart-bar text-purple-400 text-xl md:text-2xl ml-3"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white">4. التقييم</h3>
+                    </div>
+                    <p class="text-white text-sm md:text-base">تقييم النظام، وتحديد نقاط القوة والضعف، وتحديد التحسينات المطلوبة للدورة القادمة.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Animate phase cards on load
+        function animatePhaseCards() {
+            const cards = document.querySelectorAll('.phase-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateX(0)';
+                }, 300 * index);
+            });
+        }
+        
+        createParticles();
+        animatePhaseCards();
+    </script>
+</body>
+</html>
